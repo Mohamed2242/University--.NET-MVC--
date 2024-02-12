@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Student>
+
+<h1 class="alert alert-info text-center">
+	Students
+</h1>
+
+<a asp-controller="Students" asp-action="GetCreateView" class="btn btn-success mb-1">
+	Create New
+</a>
+
+<form asp-action="Index">
+	<div class="input-group md-form form-control-sm form-2 p-0">
+		<input style="border-radius:10px" name="Name" class="form-control" type="text" placeholder="Search" aria-label="Search" />
+		<div class="input-group-append">
+			<span class="input-group-text" id="basic-text1">
+				<i style="border-radius:10px" class="bi bi-search"></i>
+			</span>
+		</div>
+	</div>
+</form>
+
+@section scripts{
+	<script>
+		$(function () {
+			$("#basic-text1").click(function () {
+				$("Form").submit();
+			})
+		});
+	</script>
+}
+
+
+
+@if (Model.Count() > 0)
+{
+	<table class="table table-bordered table-striped table-hover table-sm">
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(s=>s.Id)</th>
+				<th>@Html.DisplayNameFor(s=>s.FullName)</th>
+				<th>@Html.DisplayNameFor(s=>s.YearNumber)</th>
+				<th>@Html.DisplayNameFor(s=>s.CGPA)</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.FullName</td>
+					<td>@item.YearNumber</td>
+					<td>@item.CGPA</td>
+					<td>
+						<a asp-controller="Students" asp-action="GetDetailsView"
+						   asp-route-id="@item.Id" class="btn btn-outline-success" title="Details"><i class="bi bi-list-ul"></i></a>
+
+						<a asp-controller="Students" asp-action="GetEditView"
+						   asp-route-id="@item.Id" class="btn btn-outline-primary" title="Edit"><i class="bi bi-pencil-square"></i></a>
+
+						<a asp-controller="Students" asp-action="GetDeleteView"
+						   asp-route-id="@item.Id" class="btn btn-outline-danger" title="Delete"><i class="bi bi-trash"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr><th colspan="3" style="text-align:right">Total</th><td>@Model.Average(s=>s.CGPA)</td></tr>
+		</tfoot>
+	</table>
+
+	<a asp-controller="Students" asp-action="GetIndexView" class="btn btn-danger">Back to List</a>
+
+}
+else
+{
+	<h1 class="alert alert-danger text-center">There is no data.</h1>
+
+	<a asp-controller="Students" asp-action="GetIndexView" class="btn btn-danger">Back to List</a>
+
+}
+
+<br />
+<hr />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

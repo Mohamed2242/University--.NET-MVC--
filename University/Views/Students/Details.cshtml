@@ -1,0 +1,35 @@
+﻿@model Student
+
+<h1 class="alert alert-info text-center">@Model.FullName Details</h1>
+
+<div class="row">
+    <dl class="row col-6">
+        <dt class="col-2">@Html.DisplayNameFor(s=>s.Id)</dt>
+        <dd class="col-10">@Model.Id</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s=>s.FullName)</dt>
+        <dd class="col-10">@Model.FullName</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s => s.YearNumber)</dt>
+        <dd class="col-10">@Model.YearNumber</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s=>s.DepartmentId)</dt>
+        <dd class="col-10">@Model.Department.Description</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s=> s.CGPA)</dt>
+        <dd class="col-10">@Model.CGPA</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s=>s.BirthDate)</dt>
+        <dd class="col-10">@Model.BirthDate</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(s=>s.JoinDate)</dt>
+        <dd class="col-10">@Model.JoinDate</dd>
+
+        
+    </dl>
+
+    <div class="col-6">
+        <img src="@Model.ImageUrl" style="width:50%;aspect-ratio:1/1" />
+    </div>
+</div>
+<a asp-controller="Students" asp-action="GetIndexView" class="btn btn-danger">Back to List</a>
