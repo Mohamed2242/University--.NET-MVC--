@@ -4,7 +4,7 @@
 
 - The project aims to develop a web-based CRUD (Create, Read, Update, Delete) application.
 
-- Can assign a department to each employee and then go to a specific department and show the studentsthat was assigned to this department.
+- Can assign a department to each student and then go to a specific department and show the students that was assigned to this department.
 
 ### Technologies used: 
 
