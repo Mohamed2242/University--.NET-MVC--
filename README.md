@@ -1,4 +1,4 @@
-# University Project
+# Departmental Management System (University)
 
 ### Description:
 
